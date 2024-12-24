@@ -62,6 +62,10 @@
   <ItemGroup>
     <Build Include="Tables\Tracker.sql" />
     <Build Include="StoredProcedures\spEntries_GetAll.sql" />
+    <Build Include="StoredProcedures\spEntries_Insert.sql" />
+    <Build Include="StoredProcedures\spEntries_Update.sql" />
+    <Build Include="StoredProcedures\spEntries_Delete.sql" />
+    <Build Include="StoredProcedures\spEntries_Get.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CodingTrackerDb.publish.xml" />

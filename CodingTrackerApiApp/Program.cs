@@ -1,4 +1,5 @@
-using CodingTrackerLibrary.Data;
+using CodingTrackerApiApp;
+using CodingTrackerLibrary.DbAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,7 @@ builder.Services.AddSingleton<ICodingTrackerData, CodingTrackerData>();
 
 var app = builder.Build();
 
+
 // Enable CORS
 app.UseCors("AllowAll");
 
@@ -35,11 +37,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/trackers", async (ICodingTrackerData db) =>
-{
-    var output = await db.GetCodingTrackers();
-    return output;
-});
+
+app.ConfigureApi();
+
+//app.MapGet("/trackers", async (ICodingTrackerData db) =>
+//{
+//    var output = await db.GetEntries();
+//    return output;
+//});
 
 
 app.Run();
